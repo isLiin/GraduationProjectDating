@@ -1,0 +1,59 @@
+
+@mixin flexCenter {
+    align-items: center;
+    justify-content: center;
+}
+
+.viewHeader {
+    z-index: 999;
+    box-shadow: 1px 1px 12px 1px var(--background-03);
+//    background-color: var(--background-02);
+    background-blend-mode: color-burn;
+
+    .viewsOption,
+    .viewsMatches {
+        @include flexCenter;
+
+        display: flex;
+        width: 100%;
+    }
+
+    .viewsOption {
+        height: 20%;
+    }
+
+    .viewsMatches {
+        height: 80%;
+    }
+
+    @media only screen and (max-width : 550px) {
+        flex-direction: row;
+
+        .viewsOption,
+        .viewsMatches {
+            height: 100%;
+        }
+
+        .viewsOption {
+            width: 30% !important;
+
+            .btn {
+                span {
+                    display: none;
+                }
+            }
+        }
+
+        .viewsMatches{
+            width: 70% !important;
+
+            .btn {
+                // background-color: var(--color-nothing);
+                width: 35px;
+                height: 35px;
+                font-size: larger;
+                color: black;
+            }
+        }
+    }
+}
