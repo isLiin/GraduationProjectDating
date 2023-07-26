@@ -1,5 +1,5 @@
 import "./App.scss";
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import ViewHeader from "./Header/ViewHeader";
 
 function App() {
@@ -14,7 +14,7 @@ function App() {
   /**
    * Loader matches
    */
-  const [userMatches, setUserMatches] = useState({});
+  // const [userMatches, setUserMatches] = useState({});
 
   // useEffect(()=> setUserMatches({
     
@@ -26,7 +26,7 @@ function App() {
       <ViewHeader
         theme={themeToggle}
         evt={setThemeToggle}
-        userMatches={userMatches}
+        // userMatches={userMatches}
       />
       <div className="App">hello</div>
     </div>

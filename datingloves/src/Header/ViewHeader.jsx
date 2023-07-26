@@ -1,9 +1,32 @@
 import "./HeaderStyle.scss";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { BiAdjust, BiShieldQuarter } from "react-icons/bi";
 import { dataUserDefault } from "../Common/DataComon";
 
+/**
+ *  View Header
+ *
+ * @param {*} props
+ * @returns
+ */
 function ViewsHeader(props) {
+  const [accounts, setAccounts] = useState();
+
+  /**
+   * Use API get data account
+   */
+  useEffect(() => {
+    fetch("/allAccount")
+      .then((res) => res.json())
+      .then((data) => setAccounts(data.recordset));
+  });
+
+  /**
+   * function customize button
+   *
+   * @param {*} account
+   * @returns button
+   */
   const iconUser = (account) => {
     return (
       <button className="btn btn-account">
@@ -38,11 +61,7 @@ function ViewsHeader(props) {
           <div className="matches">matches</div>
           <div className="message">message</div>
         </div>
-        <div className="group-matches">
-          <div className="user-matche">
-            asd
-          </div>
-        </div>
+        <div className="group-matches">{accounts}</div>
       </div>
     </div>
   );
