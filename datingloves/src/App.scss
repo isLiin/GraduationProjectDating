@@ -1,12 +1,21 @@
 @import url(./Common/style.scss);
 
-#root,
+#root {
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+
+    background-color: black;
+}
+
 .main {
     width: 100vw;
     height: 100vh;
 
     display: flex;
     flex-direction: row;
+
+    background-color: var(--background-01);
 
     .viewHeader,
     .App {
@@ -20,15 +29,19 @@
     }
 
     .viewHeader {
-        max-width: 250px;
+        max-width: 350px;
+        background-color: var(--background-02);
     }
 
     .App {
-        max-width: calc(100vw - 250px);
+        max-width: calc(100vw - 350px);
         align-items: center;
+
+        background-color: gray;
     }
 
     @media screen and (max-width: 550px) {
+        width: 100vw;
         flex-direction: column;
 
         .viewHeader,

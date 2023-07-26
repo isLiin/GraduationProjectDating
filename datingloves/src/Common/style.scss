@@ -11,6 +11,7 @@
     --background-04: #9237F6;
     --background-05: #8E69F4;
     --color-nothing: rgba(128, 128, 128, 0.012);
+    --color-opacity-8: #bd4f278a;
 }
 
 body {
@@ -22,13 +23,9 @@ body {
 }
 
 .btn {
-    :hover {
-        cursor: pointer;
-        box-shadow: inset 0.2px 0 1px 0.5px var(--color-01);
-    }
+    cursor: pointer;
 
-    max-width: 150px;
-    width: 100%;
+    width: auto;
     height: 100%;
     padding: .8px 1.5px;
 
@@ -39,8 +36,8 @@ body {
     align-items: center;
     justify-content: space-around;
 
-    color: var(--color-01);
-    // background: var(--background-01);
+    color: #000;
+    background: var(--background-01);
 
     img {
         width: 35px;

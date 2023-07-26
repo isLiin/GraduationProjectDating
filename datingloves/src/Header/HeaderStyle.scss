@@ -1,59 +1,98 @@
-
 @mixin flexCenter {
-    align-items: center;
-    justify-content: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .viewHeader {
-    z-index: 999;
-    box-shadow: 1px 1px 12px 1px var(--background-03);
-//    background-color: var(--background-02);
-    background-blend-mode: color-burn;
+  z-index: 999;
+  box-shadow: 1px 1px 12px 1px var(--background-03);
+  background-blend-mode: color-burn;
 
-    .viewsOption,
-    .viewsMatches {
-        @include flexCenter;
+  .viewsOption,
+  .viewsMatches {
+    @include flexCenter;
+    width: 100%;
+  }
 
-        display: flex;
-        width: 100%;
+  .viewsOption {
+    height: 15%;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+
+    .profile,
+    .author {
+      height: 80%;
+      width: 50%;
     }
+
+    .profile {
+      @include flexCenter();
+      justify-content: flex-start;
+
+      .btn {
+        height: 45px;
+        margin-left: 1em;
+      }
+    }
+
+    .author {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      button {
+        @include flexCenter();
+        width: 45px;
+        height: 45px;
+        font-size: 25px;
+        margin: 5px;
+        color: aliceblue;
+        background-color: var(--color-opacity-8);
+      }
+    }
+  }
+
+  .viewsMatches {
+    height: 85%;
+    background-color: rgb(109, 150, 136);
+
+    display: flex;
+    flex-direction: column-reverse;
+
+    .group-matches {
+      > div.user-matche {
+        width: 100%;
+        height: 250px;
+        box-shadow: inset 1px 1px 10px 2px gray;
+        background-color: aliceblue;
+      }
+    }
+  }
+
+  @media only screen and (max-width: 550px) {
+    flex-direction: row;
 
     .viewsOption {
-        height: 20%;
+      height: 100%;
+      width: 100% !important;
+
+      .profile .btn {
+        width: auto;
+        height: auto;
+        padding: 3px;
+        justify-content: flex-start;
+
+        span {
+          display: none;
+        }
+      }
     }
 
     .viewsMatches {
-        height: 80%;
+      display: none;
     }
-
-    @media only screen and (max-width : 550px) {
-        flex-direction: row;
-
-        .viewsOption,
-        .viewsMatches {
-            height: 100%;
-        }
-
-        .viewsOption {
-            width: 30% !important;
-
-            .btn {
-                span {
-                    display: none;
-                }
-            }
-        }
-
-        .viewsMatches{
-            width: 70% !important;
-
-            .btn {
-                // background-color: var(--color-nothing);
-                width: 35px;
-                height: 35px;
-                font-size: larger;
-                color: black;
-            }
-        }
-    }
+  }
 }
