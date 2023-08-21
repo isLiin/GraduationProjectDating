@@ -4,18 +4,20 @@
 }
 
 :root{
-    --color-01: #fff;
-    --background-01: #fff;
-    --background-02: #F24405;
-    --background-03: #F25C05;
-    --background-04: #9237F6;
-    --background-05: #8E69F4;
+    --color-01: #b51a2c6b;
+    --color-02: #242f4956;
+    --color-03: #000;
+
+    --background-01: #FFA586;
+    --background-02: #B51A2B;
+    --background-03: #242F49;
+    --background-04: #541A2E;
     --color-nothing: rgba(128, 128, 128, 0.012);
     --color-opacity-8: #bd4f278a;
 }
 
 body {
-    color: var(--color-02);
+    color: var(--color-03);
     background-color: var(--background-01);
 
     font: 1em;
@@ -48,5 +50,28 @@ body {
     span {
         min-width: 75px;
         overflow: unset;
+    }
+}
+
+.cardInfo{
+    position: absolute;
+
+    width: 420px;
+    height: 594px;
+    background-color: var(--background-01);
+
+    overflow: hidden;
+    border-radius: 7px;
+    box-shadow: 6px 6px 12px var(--color-01),
+    -6px -6px 12px var(--color-02);
+
+    .groupImages{
+        width: 100%;
+        height: 100%;
+    }
+    .infoUser{
+        position: absolute;
+        z-index: 1;
+        bottom: 0;
     }
 }

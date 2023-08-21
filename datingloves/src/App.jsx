@@ -1,34 +1,40 @@
 import "./App.scss";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import ViewHeader from "./Header/ViewHeader";
+import { getBirth } from "./Common/DataComon";
 
 function App() {
-  /**
-   * Theme option
-   *  true = light
-   *  false = dark
-   */
-  const [themeToggle, setThemeToggle] = useState(true);
-  let theme = themeToggle === true ? "light" : "dark";
 
-  /**
-   * Loader matches
-   */
-  // const [userMatches, setUserMatches] = useState({});
+  const [accounts, setAccounts] = useState([]);
+  useEffect(() => {
+    fetch("/api/v1/products/getAllAccounts")
+      .then((res) => res.json())
+      .then((data) => setAccounts(data.data));
+  }, []);
 
-  // useEffect(()=> setUserMatches({
-    
-  // }))
-
+  const infoUser = (account) => {
+    return (
+      <div className="cardInfo" key={account.account_id}>
+        <div className="groupImages">
+          {account.account_images.map((image, index) =>
+            (<div className="image-item" key={index}>{image}</div>))
+          }
+        </div>
+        <div className="infoUser">
+          <div className="infoUser-name">{account.account_name}</div>
+          <div className="infoUser-birth">{getBirth(account.account_birth)}</div>
+          <div className="infoUser-gender">{account.account_gender}</div>
+        </div>
+      </div>
+    )
+  }
 
   return (
-    <div className={`main ` + theme}>
-      <ViewHeader
-        theme={themeToggle}
-        evt={setThemeToggle}
-        // userMatches={userMatches}
-      />
-      <div className="App">hello</div>
+    <div className='main'>
+      <ViewHeader />
+      <div className="App">
+        {accounts.map(account => infoUser(account))}
+      </div>
     </div>
   );
 }

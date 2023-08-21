@@ -1,5 +1,5 @@
 import "./HeaderStyle.scss";
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { BiAdjust, BiShieldQuarter } from "react-icons/bi";
 import { dataUserDefault } from "../Common/DataComon";
 
@@ -10,16 +10,6 @@ import { dataUserDefault } from "../Common/DataComon";
  * @returns
  */
 function ViewsHeader(props) {
-  const [accounts, setAccounts] = useState();
-
-  /**
-   * Use API get data account
-   */
-  useEffect(() => {
-    fetch("/allAccount")
-      .then((res) => res.json())
-      .then((data) => setAccounts(data.recordset));
-  });
 
   /**
    * function customize button
@@ -61,7 +51,7 @@ function ViewsHeader(props) {
           <div className="matches">matches</div>
           <div className="message">message</div>
         </div>
-        <div className="group-matches">{accounts}</div>
+        {/* <div className="group-matches">{accounts}</div> */}
       </div>
     </div>
   );

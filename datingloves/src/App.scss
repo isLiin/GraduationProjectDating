@@ -36,8 +36,7 @@
     .App {
         max-width: calc(100vw - 350px);
         align-items: center;
-
-        background-color: gray;
+        background-color: var(--background-04);
     }
 
     @media screen and (max-width: 550px) {
